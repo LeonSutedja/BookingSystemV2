@@ -62,6 +62,10 @@ namespace LeonSutedja.BookingSystem.Services.Commands
 
         [MaxLength(50)]
         public string MobileNo { get; private set; }
+
+        public string RequestedBy => throw new NotImplementedException();
+
+        public DateTime RequestedDateTime => throw new NotImplementedException();
     }
 
     public class CreateCustomerCommandMapper : ICreateCommandMapper<CreateCustomerCommand, Customer>

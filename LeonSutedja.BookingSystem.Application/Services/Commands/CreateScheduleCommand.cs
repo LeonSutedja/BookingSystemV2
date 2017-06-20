@@ -52,6 +52,10 @@ namespace LeonSutedja.BookingSystem.Services.Commands
 
         [Required]
         public int RoomId { get; private set; }
+
+        public string RequestedBy => throw new NotImplementedException();
+
+        public DateTime RequestedDateTime => throw new NotImplementedException();
     }
 
     public class CreateScheduleCommandMapper : ICreateCommandMapper<CreateScheduleCommand, Schedule>

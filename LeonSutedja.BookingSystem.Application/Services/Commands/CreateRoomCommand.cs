@@ -3,6 +3,7 @@ using LeonSutedja.BookingSystem.Entities;
 using LeonSutedja.BookingSystem.Shared.Handler;
 using LeonSutedja.BookingSystem.Shared.Handler.Create;
 using Event = LeonSutedja.BookingSystem.Entities.Event;
+using System;
 
 namespace LeonSutedja.BookingSystem.Services.Commands
 {
@@ -22,7 +23,7 @@ namespace LeonSutedja.BookingSystem.Services.Commands
 
         private class RoomCreated : Event
         {
-            public RoomCreated(CreateRoomCommand cmd) : base()
+            public RoomCreated(CreateRoomCommand cmd) :base (Guid.Empty, "Test", "Test", DateTime.Now, "me")
             {
                 ShortName = cmd.ShortName;
                 Name = cmd.Name;
@@ -44,7 +45,7 @@ namespace LeonSutedja.BookingSystem.Services.Commands
 
         public IEvent GetEvent()
         {
-            return new RoomCreated(this);
+            return (IEvent) new RoomCreated(this);
         }
     }
 

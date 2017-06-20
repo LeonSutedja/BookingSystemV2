@@ -48,6 +48,10 @@ namespace LeonSutedja.BookingSystem.Services.Commands
 
         [Required]
         public int CustomerId { get; private set; }
+
+        public string RequestedBy => throw new NotImplementedException();
+
+        public DateTime RequestedDateTime => throw new NotImplementedException();
     }
 
     public class CreateAppointmentCommandHandler : IUpdateCommandHandler<BookAppointmentOnScheduleCommand, Schedule>
