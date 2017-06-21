@@ -21,25 +21,22 @@ namespace LeonSutedja.BookingSystem.Services.Commands
         [Required]
         public int CustomerId { get; set; }
         
-        public IEvent GetEvent()
+        public IEvent GetEvent(string triggeredBy, DateTime triggeredDateTime)
         {
-            return new BookAppointmentScheduled(this);
+            return new BookAppointmentScheduled(this, triggeredBy, triggeredDateTime);
         }
     }
 
-    public class BookAppointmentScheduled : IEvent
+    public class BookAppointmentScheduled : Event
     {
-        public BookAppointmentScheduled(BookAppointmentOnScheduleCommand cmd)
+        public BookAppointmentScheduled(BookAppointmentOnScheduleCommand cmd, string triggeredBy, DateTime triggeredDateTime)
+            : base(Guid.NewGuid(), triggeredBy, triggeredDateTime)
         {
-            Id = cmd.Id;
             StartTime = cmd.StartTime;
             EndTime = cmd.EndTime;
             CustomerId = cmd.CustomerId;
         }
-
-        [Required]
-        public int Id { get; private set; }
-
+        
         [Required]
         public DateTime StartTime { get; private set; }
 
@@ -47,11 +44,7 @@ namespace LeonSutedja.BookingSystem.Services.Commands
         public DateTime EndTime { get; private set; }
 
         [Required]
-        public int CustomerId { get; private set; }
-
-        public string RequestedBy => throw new NotImplementedException();
-
-        public DateTime RequestedDateTime => throw new NotImplementedException();
+        public int CustomerId { get; private set; }        
     }
 
     public class CreateAppointmentCommandHandler : IUpdateCommandHandler<BookAppointmentOnScheduleCommand, Schedule>

@@ -4,31 +4,6 @@ using System.Runtime.InteropServices;
 
 namespace LeonSutedja.BookingSystem.Entities
 {
-    public class Event : Abp.Domain.Entities.Entity<Guid>
-    {
-        [Required]
-        public string Name { get; private set; }
-
-        [Required]
-        public string Log { get; private set; }
-
-        [Required]
-        public DateTime CreatedTime { get; private set; }
-
-        [Required]
-        public string CreatedBy { get; private set; }
-
-        public Event(Guid guid, string name, string log, DateTime createdTime, string createdBy)
-        {
-            Id = guid;
-            Name = name;
-            Log = log;
-            CreatedTime = createdTime;
-            CreatedBy = createdBy;
-        }
-
-    }
-
     public class Customer : Abp.Domain.Entities.Entity
     {
         [Required]

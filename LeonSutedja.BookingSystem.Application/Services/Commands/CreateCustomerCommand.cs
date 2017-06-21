@@ -27,21 +27,23 @@ namespace LeonSutedja.BookingSystem.Services.Commands
         [MaxLength(50)]
         public string MobileNo { get; set; }
 
-        public IEvent GetEvent()
+                public IEvent GetEvent(string triggeredBy, DateTime triggeredDateTime)
         {
-            return new CustomerCreated(this);
+            return new CustomerCreated(this, triggeredBy, triggeredDateTime);
         }
     }
 
     public class CustomerCreated : IEvent
     {
-        public CustomerCreated(CreateCustomerCommand command)
+        public CustomerCreated(CreateCustomerCommand command, string triggeredBy, DateTime triggeredDateTime)
         {
             FirstName = command.FirstName;
             LastName = command.LastName;
             DateOfBirth = command.DateOfBirth;
             Email = command.Email;
             MobileNo = command.MobileNo;
+            TriggeredBy = triggeredBy;
+            TriggeredDateTime = TriggeredDateTime;
         }
 
         [Required]
@@ -63,9 +65,11 @@ namespace LeonSutedja.BookingSystem.Services.Commands
         [MaxLength(50)]
         public string MobileNo { get; private set; }
 
-        public string RequestedBy => throw new NotImplementedException();
+        public Guid Id { get; private set; }
 
-        public DateTime RequestedDateTime => throw new NotImplementedException();
+        public string TriggeredBy { get; private set; }
+
+        public DateTime TriggeredDateTime { get; private set; }
     }
 
     public class CreateCustomerCommandMapper : ICreateCommandMapper<CreateCustomerCommand, Customer>

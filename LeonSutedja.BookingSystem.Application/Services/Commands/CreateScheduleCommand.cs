@@ -25,20 +25,22 @@ namespace LeonSutedja.BookingSystem.Services.Commands
         [Required]
         public int RoomId { get; set; }
 
-        public IEvent GetEvent()
+        public IEvent GetEvent(string triggeredBy, DateTime triggeredDateTime)
         {
-            return new ScheduleCreated(this);
+            return new ScheduleCreated(this, triggeredBy, triggeredDateTime);
         }
     }
 
     public class ScheduleCreated : IEvent
     {
-        public ScheduleCreated(CreateScheduleCommand cmd)
+        public ScheduleCreated(CreateScheduleCommand cmd, string triggeredBy, DateTime triggeredDateTime)
         {
             Date = cmd.Date;
             StartTime = cmd.StartTime;
             EndTime = cmd.EndTime;
             RoomId = cmd.RoomId;
+            TriggeredBy = triggeredBy;
+            TriggeredDateTime = triggeredDateTime;
         }
 
         [Required]
@@ -53,9 +55,11 @@ namespace LeonSutedja.BookingSystem.Services.Commands
         [Required]
         public int RoomId { get; private set; }
 
-        public string RequestedBy => throw new NotImplementedException();
+        public Guid Id { get; private set; }
 
-        public DateTime RequestedDateTime => throw new NotImplementedException();
+        public string TriggeredBy { get; private set; }
+
+        public DateTime TriggeredDateTime { get; private set; }
     }
 
     public class CreateScheduleCommandMapper : ICreateCommandMapper<CreateScheduleCommand, Schedule>

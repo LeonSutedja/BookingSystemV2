@@ -100,13 +100,7 @@ namespace LeonSutedja.BookingSystem.Tests
             string location)
         {
             //Prepare for test
-            var command = new CreateRoomCommand()
-            {
-                ShortName = shortName,
-                Name = name,
-                Location = location
-            };
-
+            var command = new CreateRoomCommand(shortName, name, location);
             var result = _cudAppService.CreateRoom(command);
             result.Id.ShouldBeGreaterThan(0);
         }
@@ -128,12 +122,7 @@ namespace LeonSutedja.BookingSystem.Tests
             string name,
             string location)
         {
-            var command = new CreateRoomCommand()
-            {
-                ShortName = shortName,
-                Name = name,
-                Location = location
-            };
+            var command = new CreateRoomCommand(shortName, name, location);
             Assert.True(ValidateModel(command).Count > 0);
         }
         

@@ -2,7 +2,6 @@ using System.ComponentModel.DataAnnotations;
 using LeonSutedja.BookingSystem.Entities;
 using LeonSutedja.BookingSystem.Shared.Handler;
 using LeonSutedja.BookingSystem.Shared.Handler.Create;
-using Event = LeonSutedja.BookingSystem.Entities.Event;
 using System;
 
 namespace LeonSutedja.BookingSystem.Services.Commands
@@ -20,10 +19,23 @@ namespace LeonSutedja.BookingSystem.Services.Commands
         [Required]
         [StringLength(200)]
         public string Location { get; set; }
+        
+        public CreateRoomCommand(string shortName, string name, string location)
+        {
+            ShortName = shortName;
+            Name = name;
+            Location = location;
+        }
+
+        public IEvent GetEvent(string triggeredBy, DateTime triggeredDateTime)
+        {
+            return new RoomCreated(this, triggeredBy, triggeredDateTime);
+        }
 
         private class RoomCreated : Event
         {
-            public RoomCreated(CreateRoomCommand cmd) :base (Guid.Empty, "Test", "Test", DateTime.Now, "me")
+            public RoomCreated(CreateRoomCommand cmd, string triggeredBy, DateTime triggeredDateTime) 
+                : base (Guid.NewGuid(), triggeredBy, triggeredDateTime)
             {
                 ShortName = cmd.ShortName;
                 Name = cmd.Name;
@@ -41,12 +53,7 @@ namespace LeonSutedja.BookingSystem.Services.Commands
             [Required]
             [StringLength(200)]
             public string Location { get; private set; }
-        }
-
-        public IEvent GetEvent()
-        {
-            return (IEvent) new RoomCreated(this);
-        }
+        }        
     }
 
     public class CreateRoomCommandMapper : ICreateCommandMapper<CreateRoomCommand, Room>

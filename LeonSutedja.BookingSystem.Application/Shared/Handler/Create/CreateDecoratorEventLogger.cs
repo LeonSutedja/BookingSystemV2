@@ -1,4 +1,5 @@
 ﻿using Abp.Domain.Entities;
+using System;
 
 namespace LeonSutedja.BookingSystem.Shared.Handler.Create
 {
@@ -17,7 +18,7 @@ namespace LeonSutedja.BookingSystem.Shared.Handler.Create
         {
             // Log the command here
             var result = _handler.Create(input);
-            var e = input.GetEvent();
+            var e = input.GetEvent("SYSTEM", DateTime.Now);
             var eJson = e.ToJson();
             // Log the result here
             return result;

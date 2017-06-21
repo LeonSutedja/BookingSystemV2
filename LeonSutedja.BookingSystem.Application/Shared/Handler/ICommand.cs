@@ -5,27 +5,32 @@ namespace LeonSutedja.BookingSystem.Shared.Handler
 {
     public interface IEvent
     {
-        string RequestedBy { get; }
+        Guid Id { get; }
 
-        DateTime RequestedDateTime { get; }
+        string TriggeredBy { get; }
+
+        DateTime TriggeredDateTime { get; }
     }
 
     public abstract class Event : IEvent
     {
-        public string RequestedBy { get; }
+        public Guid Id { get; }
 
-        public DateTime RequestedDateTime { get; }
+        public string TriggeredBy { get; }
 
-        protected Event(string requestedBy, DateTime requestedDateTime)
+        public DateTime TriggeredDateTime { get; }
+
+        protected Event(Guid id, string triggeredBy, DateTime triggeredDateTime)
         {
-            RequestedBy = requestedBy;
-            RequestedDateTime = requestedDateTime;
+            Id = id;
+            TriggeredBy = triggeredBy;
+            TriggeredDateTime = triggeredDateTime;
         }
     }
 
     public interface ICommand<out T> where T : Entity
     {
-        IEvent GetEvent();
+        IEvent GetEvent(string triggeredBy, DateTime triggeredDateTime);
     }
 
     public interface ICreateCommand<out T> : ICommand<T> where T: Entity
