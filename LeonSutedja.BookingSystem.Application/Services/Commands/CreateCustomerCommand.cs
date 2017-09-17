@@ -27,7 +27,7 @@ namespace LeonSutedja.BookingSystem.Services.Commands
         [MaxLength(50)]
         public string MobileNo { get; set; }
 
-                public IEvent GetEvent(string triggeredBy, DateTime triggeredDateTime)
+        public IEvent GetEvent(string triggeredBy, DateTime triggeredDateTime)
         {
             return new CustomerCreated(this, triggeredBy, triggeredDateTime);
         }
