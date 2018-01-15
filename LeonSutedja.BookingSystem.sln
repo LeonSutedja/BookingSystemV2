@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{DFA48E27-7D53-4955-A722-3D91A7119BE7}"
 	ProjectSection(SolutionItems) = preProject
@@ -21,6 +21,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeonSutedja.BookingSystem.WebApi", "LeonSutedja.BookingSystem.WebApi\LeonSutedja.BookingSystem.WebApi.csproj", "{5EB52D3D-09FD-463A-B02A-8D9856BD3724}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeonSutedja.BookingSystem.Tests", "LeonSutedja.BookingSystem.Tests\LeonSutedja.BookingSystem.Tests.csproj", "{B3AA9701-B342-45A8-A37D-A487317C4366}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeonSutedja.BookingSystem.NancyWeb", "LeonSutedja.BookingSystem.NancyWeb\LeonSutedja.BookingSystem.NancyWeb.csproj", "{A00A6F93-6201-4DEF-9C5C-233F47240FF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,8 +54,15 @@ Global
 		{B3AA9701-B342-45A8-A37D-A487317C4366}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3AA9701-B342-45A8-A37D-A487317C4366}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3AA9701-B342-45A8-A37D-A487317C4366}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A00A6F93-6201-4DEF-9C5C-233F47240FF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A00A6F93-6201-4DEF-9C5C-233F47240FF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A00A6F93-6201-4DEF-9C5C-233F47240FF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A00A6F93-6201-4DEF-9C5C-233F47240FF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {85A40C59-745E-4C58-95CD-6ADEDE07913D}
 	EndGlobalSection
 EndGlobal

@@ -132,3 +132,29 @@ DEBUG 2017-06-06 19:34:07,670 [40   ] Abp.BackgroundJobs.BackgroundJobManager  -
 DEBUG 2017-06-06 19:34:07,847 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes define auto mapping attributes
 DEBUG 2017-06-06 19:34:07,847 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - LeonSutedja.BookingSystem.Services.ScheduleDto
 DEBUG 2017-06-06 19:34:08,024 [40   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'LeonSutedja.BookingSystem.Services.ICudAppService' with service name 'app/cud'.
+DEBUG 2018-01-11 20:35:51,397 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2018-01-11 20:35:51,410 [1    ] Abp.Modules.AbpModuleManager             - Found 12 ABP modules in total.
+DEBUG 2018-01-11 20:35:51,415 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LeonSutedja.BookingSystem.Web.BookingSystemWebModule, LeonSutedja.BookingSystem.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-11 20:35:51,417 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-11 20:35:51,417 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-11 20:35:51,417 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-11 20:35:51,417 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-11 20:35:51,417 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LeonSutedja.BookingSystem.BookingSystemDataModule, LeonSutedja.BookingSystem.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-11 20:35:51,418 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-11 20:35:51,418 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LeonSutedja.BookingSystem.BookingSystemCoreModule, LeonSutedja.BookingSystem.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-11 20:35:51,418 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LeonSutedja.BookingSystem.BookingSystemApplicationModule, LeonSutedja.BookingSystem.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-11 20:35:51,418 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-11 20:35:51,419 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LeonSutedja.BookingSystem.BookingSystemWebApiModule, LeonSutedja.BookingSystem.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-11 20:35:51,419 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-11 20:35:51,421 [1    ] Abp.Modules.AbpModuleManager             - 12 modules loaded.
+DEBUG 2018-01-11 20:35:51,718 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: LeonSutedja.BookingSystem.EntityFramework.BookingSystemDbContext, LeonSutedja.BookingSystem.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-11 20:35:52,753 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2018-01-11 20:35:52,761 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2018-01-11 20:35:52,779 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2018-01-11 20:35:52,829 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: BookingSystem
+DEBUG 2018-01-11 20:35:53,024 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2018-01-11 20:35:53,244 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes define auto mapping attributes
+DEBUG 2018-01-11 20:35:53,244 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LeonSutedja.BookingSystem.Services.ScheduleDto
+DEBUG 2018-01-11 20:35:53,394 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'LeonSutedja.BookingSystem.Services.ICudAppService' with service name 'app/cud'.
+WARN  2018-01-11 20:35:56,593 [7    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2018-01-11 20:35:56,624 [7    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.

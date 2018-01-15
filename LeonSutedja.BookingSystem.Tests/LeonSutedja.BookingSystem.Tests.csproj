@@ -143,6 +143,12 @@
     <Compile Include="BookingSystemTestBase.cs" />
     <Compile Include="BookingSystemTestModule.cs" />
     <Compile Include="CudAppService_Tests.cs" />
+    <Compile Include="Pressius\DynamicObjectFactory.cs" />
+    <Compile Include="Pressius\Extension\ObjectPermutationExtension.cs" />
+    <Compile Include="Pressius\ObjectDefinition.cs" />
+    <Compile Include="Pressius\ParameterDefinition\DefaultParameterDefinition.cs" />
+    <Compile Include="Pressius\ParameterDefinition\IParameterDefinition.cs" />
+    <Compile Include="Pressius\ParameterDefinition\ParameterTypeDefinition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

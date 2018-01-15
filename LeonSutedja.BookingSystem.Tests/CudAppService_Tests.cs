@@ -6,9 +6,12 @@ using LeonSutedja.BookingSystem.Services.Commands;
 using LeonSutedja.BookingSystem.Shared;
 using Shouldly;
 using Xunit;
+using LeonSutedja.Pressius;
+using System.Linq;
 
 namespace LeonSutedja.BookingSystem.Tests
 {
+
     public class CudAppService_Tests : BookingSystemTestBase
     {
         private readonly ICudAppService _cudAppService;
@@ -25,13 +28,21 @@ namespace LeonSutedja.BookingSystem.Tests
             var ctx = new ValidationContext(model, null, null);
             Validator.TryValidateObject(model, ctx, validationResults, true);
             return validationResults;
-        }
+        }        
+
+        
 
         public static IEnumerable<object[]> ValidCreateCustomerCommand()
         {
-            yield return new object[] { "firstName", "lastName", new DateTime(1988, 11, 11), null, null };
-            yield return new object[] { "firstName", "lastName", new DateTime(1988, 11, 11), "a@a.com.au", null };
-            yield return new object[] { "firstName", "lastName", new DateTime(1988, 11, 11), "a@a.com", null };
+            var pressiusInputs = PressiusPermutations.Generate<CreateCustomerCommand>().ToList();
+            for(var i = 0; i < pressiusInputs.Count; i++)
+            {
+                var input = pressiusInputs[i];
+                yield return new object[] { input.FirstName, input.LastName, input.DateOfBirth, input.Email, input.MobileNo };
+            }
+            //yield return new object[] { "firstName", "lastName", new DateTime(1988, 11, 11), null, null };
+            //yield return new object[] { "firstName", "lastName", new DateTime(1988, 11, 11), "a@a.com.au", null };
+            //yield return new object[] { "firstName", "lastName", new DateTime(1988, 11, 11), "a@a.com", null };
         }
         [Theory]
         [MemberData("ValidCreateCustomerCommand")]
@@ -43,13 +54,14 @@ namespace LeonSutedja.BookingSystem.Tests
             string mobileNo)
         {
             //Prepare for test
+
             var command = new CreateCustomerCommand
             {
                 FirstName = firstName,
                 LastName = lastName,
                 DateOfBirth = dob,
                 Email = email,
-                MobileNo = mobileNo
+                MobileNo = ""
             };
 
             var result = _cudAppService.CreateCustomer(command);
