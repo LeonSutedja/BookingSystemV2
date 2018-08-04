@@ -21,9 +21,9 @@ namespace Pressius
     {
         public override List<object> InputCatalogues =>
             new List<object> {
-                "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-                "~!@#$%&*()_+=-`\\][{}|;:,./?><'\"",
-                "defaultEmail@default.com" };
+                string.Empty,
+                "Normal String",
+                "~!@#$%&*()_+=-`\\][{}|;:,./?><'\"" };
 
         public override ParameterTypeDefinition TypeName => new ParameterTypeDefinition("String");
     }
@@ -31,7 +31,11 @@ namespace Pressius
     public class EmailStringParameter : DefaultParameterDefinition
     {
         public override List<object> InputCatalogues =>
-            new List<object> { "A@a.com" };
+            new List<object>
+            {
+                "A@a.com",
+                "Fake.Email@gmail.com"
+            };
 
         public override ParameterTypeDefinition TypeName => new ParameterTypeDefinition("Email");
 
@@ -46,7 +50,7 @@ namespace Pressius
     public class IntegerParameter : DefaultParameterDefinition
     {
         public override List<object> InputCatalogues =>
-            new List<object> { 10, 100, 1000, 10000, 100000, 1000000 };
+            new List<object> { int.MinValue, 10, int.MaxValue };
 
         public override ParameterTypeDefinition TypeName => new ParameterTypeDefinition("Integer");
     }

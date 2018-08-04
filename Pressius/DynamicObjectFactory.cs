@@ -5,13 +5,25 @@ using System.Reflection;
 
 namespace Pressius
 {
-    public static class PressiusPermutations
+    public static class Permutate
     {
         public static IEnumerable<T> Generate<T>(IObjectDefinition objectDefinition)
         {
             var inputGenerator = new DynamicObjectFactory();
             var inputs = inputGenerator
                 .SetObjectDefinition(objectDefinition)
+                .GeneratePermutations<T>();
+            return inputs;
+        }
+
+        public static IEnumerable<T> Generate<T>(
+            IObjectDefinition objectDefinition,
+            List<IParameterDefinition> parameterDefinitions)
+        {
+            var inputGenerator = new DynamicObjectFactory();
+            var inputs = inputGenerator
+                .SetObjectDefinition(objectDefinition)
+                .AddParameterDefinitions(parameterDefinitions)
                 .GeneratePermutations<T>();
             return inputs;
         }
@@ -30,19 +42,25 @@ namespace Pressius
             public DynamicObjectFactory()
             {
                 _inputDefinitions = new List<IParameterDefinition>()
-            {
-                new StringParameter(),
-                new EmailStringParameter(),
-                new IntegerParameter(),
-                new DateTimeParameter(),
-                new DoubleParameter()
-            };
+                {
+                    new StringParameter(),
+                    new EmailStringParameter(),
+                    new IntegerParameter(),
+                    new DateTimeParameter(),
+                    new DoubleParameter()
+                };
                 _objectDefinitions = new List<IObjectDefinition>();
             }
 
             public DynamicObjectFactory SetObjectDefinition(IObjectDefinition objectDefinition)
             {
                 _objectDefinitions.Add(objectDefinition);
+                return this;
+            }
+
+            public DynamicObjectFactory AddParameterDefinitions(List<IParameterDefinition> parameterDefinitions)
+            {
+                _inputDefinitions.AddRange(parameterDefinitions);
                 return this;
             }
 

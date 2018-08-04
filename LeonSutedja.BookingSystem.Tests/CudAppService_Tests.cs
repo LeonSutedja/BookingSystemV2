@@ -31,7 +31,13 @@ namespace LeonSutedja.BookingSystem.Tests
 
         public static IEnumerable<object[]> ValidCreateCustomerCommand()
         {
-            var pressiusInputs = PressiusPermutations.Generate<CreateCustomerCommand>(new CreateCustomerCommandObjectDefinition()).ToList();
+            var addedParameterDefinitions = new List<IParameterDefinition>()
+            {
+                new ValidNameParameter()
+            };
+            var pressiusInputs = Permutate.Generate<CreateCustomerCommand>(
+                new CreateCustomerCommandObjectDefinition(),
+                addedParameterDefinitions).ToList();
             foreach (var input in pressiusInputs)
             {
                 yield return new object[] { input.FirstName, input.LastName, input.DateOfBirth, input.Email, input.MobileNo };
