@@ -92,6 +92,16 @@
     <Compile Include="HomeModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LeonSutedja.BookingSystem.Application\LeonSutedja.BookingSystem.Application.csproj">
+      <Project>{edf5d964-4c0f-4f19-b674-58a38a5e5401}</Project>
+      <Name>LeonSutedja.BookingSystem.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LeonSutedja.BookingSystem.Core\LeonSutedja.BookingSystem.Core.csproj">
+      <Project>{17298ea0-af73-4f30-b6f1-2066100d7d74}</Project>
+      <Name>LeonSutedja.BookingSystem.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

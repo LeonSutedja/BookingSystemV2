@@ -11,7 +11,6 @@ using System.Linq;
 
 namespace LeonSutedja.BookingSystem.Tests
 {
-
     public class CudAppService_Tests : BookingSystemTestBase
     {
         private readonly ICudAppService _cudAppService;
@@ -28,22 +27,17 @@ namespace LeonSutedja.BookingSystem.Tests
             var ctx = new ValidationContext(model, null, null);
             Validator.TryValidateObject(model, ctx, validationResults, true);
             return validationResults;
-        }        
-
-        
+        }
 
         public static IEnumerable<object[]> ValidCreateCustomerCommand()
         {
             var pressiusInputs = PressiusPermutations.Generate<CreateCustomerCommand>().ToList();
-            for(var i = 0; i < pressiusInputs.Count; i++)
+            foreach (var input in pressiusInputs)
             {
-                var input = pressiusInputs[i];
                 yield return new object[] { input.FirstName, input.LastName, input.DateOfBirth, input.Email, input.MobileNo };
             }
-            //yield return new object[] { "firstName", "lastName", new DateTime(1988, 11, 11), null, null };
-            //yield return new object[] { "firstName", "lastName", new DateTime(1988, 11, 11), "a@a.com.au", null };
-            //yield return new object[] { "firstName", "lastName", new DateTime(1988, 11, 11), "a@a.com", null };
         }
+
         [Theory]
         [MemberData("ValidCreateCustomerCommand")]
         public void Should_Create_New_Customer(
@@ -77,6 +71,7 @@ namespace LeonSutedja.BookingSystem.Tests
             yield return new object[] { "firstName", "12345678901234567890123456789012345678901", new DateTime(1988, 11, 11), null, null };
             yield return new object[] { "firstName", "lastName", new DateTime(1988, 11, 11), "aaaa", null };
         }
+
         [Theory]
         [MemberData("InvalidCreateCustomerCommand")]
         public void Should_Not_ModelBind_With_Invalid_CreateCustomerCommand_Model(
@@ -100,10 +95,11 @@ namespace LeonSutedja.BookingSystem.Tests
 
         public static IEnumerable<object[]> ValidCreateRoomCommand()
         {
-            yield return new object[] { "Andy", "Andy Locat", "9/9 Milky Way Road, 3150 GGGG"};
-            yield return new object[] { "12345678901234567890", "Andy Locat", "9/9 Milky Way Road, 3150 GGGG"};
-            yield return new object[] { "Andy", "12345678901234567890123456789012345678901234567890", "9/9 Milky Way Road, 3150 GGGG"};
+            yield return new object[] { "Andy", "Andy Locat", "9/9 Milky Way Road, 3150 GGGG" };
+            yield return new object[] { "12345678901234567890", "Andy Locat", "9/9 Milky Way Road, 3150 GGGG" };
+            yield return new object[] { "Andy", "12345678901234567890123456789012345678901234567890", "9/9 Milky Way Road, 3150 GGGG" };
         }
+
         [Theory]
         [MemberData("ValidCreateRoomCommand")]
         public void Should_Create_New_Room(
@@ -127,6 +123,7 @@ namespace LeonSutedja.BookingSystem.Tests
             yield return new object[] { "012345678901234567891", "Lion", "9/9 Milky Way Road, 3150 GGGG" };
             yield return new object[] { "Andy", "012345678901234567890123456789012345678901234567890123456789", "9/9 Milky Way Road, 3150 GGGG" };
         }
+
         [Theory]
         [MemberData("InvalidCreateRoomCommand")]
         public void Should_Not_ModelBind_CreateNewRoomCommand(
@@ -137,7 +134,7 @@ namespace LeonSutedja.BookingSystem.Tests
             var command = new CreateRoomCommand(shortName, name, location);
             Assert.True(ValidateModel(command).Count > 0);
         }
-        
+
         public static IEnumerable<object[]> ValidNonoverlapCreateScheduleCommand()
         {
             yield return new object[] {
@@ -165,6 +162,7 @@ namespace LeonSutedja.BookingSystem.Tests
                 new DateTime(2017, 1, 10, 12, 0, 0)
             };
         }
+
         [Theory]
         [MemberData("ValidNonoverlapCreateScheduleCommand")]
         public void Should_Create_Schedule_NonOverlap(
@@ -234,11 +232,12 @@ namespace LeonSutedja.BookingSystem.Tests
                 new DateTime(2017, 1, 3, 21, 0, 0)
             };
         }
+
         [Theory]
         [MemberData("InvalidCreateScheduleCommand")]
         public void Should_Not_Create_Schedule_On_Overlap(
-            DateTime date, 
-            DateTime startTime, 
+            DateTime date,
+            DateTime startTime,
             DateTime endTime,
             DateTime date2,
             DateTime startTime2,
@@ -265,7 +264,7 @@ namespace LeonSutedja.BookingSystem.Tests
                 RoomId = 1
             };
             var overlapResult = _cudAppService.CreateSchedule(overlapCommand);
-            overlapResult.Status.ShouldBe(HandlerResponseStatus.DomainFailure); 
+            overlapResult.Status.ShouldBe(HandlerResponseStatus.DomainFailure);
         }
 
         public static IEnumerable<object[]> ValidCreateScheduleCommand()
@@ -275,7 +274,9 @@ namespace LeonSutedja.BookingSystem.Tests
                 new DateTime(2017, 1, 2, 9, 0, 0),
                 1,
                 1
-            };}
+            };
+        }
+
         [Theory]
         [MemberData("ValidCreateScheduleCommand")]
         public void Should_Create_Valid_Appointment(

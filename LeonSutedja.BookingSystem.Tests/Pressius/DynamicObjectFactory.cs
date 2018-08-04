@@ -30,7 +30,7 @@ namespace LeonSutedja.Pressius
             return inputs;
         }
 
-        public class DynamicObjectFactory
+        private class DynamicObjectFactory
         {
             private readonly List<IParameterDefinition> _inputDefinitions;
             private readonly List<IObjectDefinition> _objectDefinitions;
@@ -63,7 +63,7 @@ namespace LeonSutedja.Pressius
             public IEnumerable<object> GeneratePermutationsFromAssemblyQualifiedClassName(
                 string assemblyQualifiedClassName)
             {
-                return _generateObjectPermutation(assemblyQualifiedClassName);                
+                return _generateObjectPermutation(assemblyQualifiedClassName);
             }
 
             public IEnumerable<T> GeneratePermutations<T>()

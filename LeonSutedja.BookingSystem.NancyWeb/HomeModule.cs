@@ -2,29 +2,14 @@
 
 namespace LeonSutedja.BookingSystem.NancyWeb
 {
-
-    public interface ITestInterface
-    {
-        string GetSomeString();
-    }
-
-    public class TestInterfaceClaass : ITestInterface
-    {
-        public string GetSomeString()
-        {
-            return "Welcome to Nancy!";
-        }
-    }
-
-
     public class HomeModule : NancyModule
     {
-        public HomeModule(ITestInterface testInterface)
+        public HomeModule()
         {
             Get["/"] = _ =>
             {
                 dynamic viewBag = new DynamicDictionary();
-                viewBag.WelcomeMessage = testInterface.GetSomeString();
+                viewBag.WelcomeMessage = "Welcome to Nancy!!!";
                 return View["home", viewBag];
             };
         }
