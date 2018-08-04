@@ -1,18 +1,17 @@
-﻿using LeonSutedja.BookingSystem.Services.Commands;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace LeonSutedja.Pressius
+namespace Pressius
 {
     public static class PressiusPermutations
     {
-        public static IEnumerable<T> Generate<T>()
+        public static IEnumerable<T> Generate<T>(IObjectDefinition objectDefinition)
         {
             var inputGenerator = new DynamicObjectFactory();
             var inputs = inputGenerator
-                .SetObjectDefinition(new CreateCustomerCommandObjectDefinition())
+                .SetObjectDefinition(objectDefinition)
                 .GeneratePermutations<T>();
             return inputs;
         }

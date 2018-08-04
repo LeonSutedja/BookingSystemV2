@@ -10,10 +10,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LeonSutedja.BookingSystem.Tests</RootNamespace>
     <AssemblyName>LeonSutedja.BookingSystem.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -142,13 +143,8 @@
     <Compile Include="BookingSystemInitialDataBuilder.cs" />
     <Compile Include="BookingSystemTestBase.cs" />
     <Compile Include="BookingSystemTestModule.cs" />
+    <Compile Include="PressiusObjectDefinition\CreateCustomerCommandObjectDefinition.cs" />
     <Compile Include="CudAppService_Tests.cs" />
-    <Compile Include="Pressius\DynamicObjectFactory.cs" />
-    <Compile Include="Pressius\Extension\ObjectPermutationExtension.cs" />
-    <Compile Include="Pressius\ObjectDefinition.cs" />
-    <Compile Include="Pressius\ParameterDefinition\DefaultParameterDefinition.cs" />
-    <Compile Include="Pressius\ParameterDefinition\IParameterDefinition.cs" />
-    <Compile Include="Pressius\ParameterDefinition\ParameterTypeDefinition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -167,6 +163,10 @@
     <ProjectReference Include="..\LeonSutedja.BookingSystem.EntityFramework\LeonSutedja.BookingSystem.EntityFramework.csproj">
       <Project>{3979f157-deb0-4878-ab1d-4cef6b5a1300}</Project>
       <Name>LeonSutedja.BookingSystem.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pressius\Pressius.csproj">
+      <Project>{197790d7-147f-46b3-9c8a-afd0bbeebde9}</Project>
+      <Name>Pressius</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

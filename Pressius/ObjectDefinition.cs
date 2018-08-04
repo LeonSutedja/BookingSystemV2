@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 
-/*
-namespace LeonSutedja.Pressius
+namespace Pressius
 {
     public interface IObjectDefinition
     {
@@ -77,4 +76,3 @@ namespace LeonSutedja.Pressius
         public override ObjectInitiation InitiationMethod => ObjectInitiation.Properties;
     }
 }
-*/

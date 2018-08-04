@@ -6,8 +6,8 @@ using LeonSutedja.BookingSystem.Services.Commands;
 using LeonSutedja.BookingSystem.Shared;
 using Shouldly;
 using Xunit;
-using LeonSutedja.Pressius;
 using System.Linq;
+using Pressius;
 
 namespace LeonSutedja.BookingSystem.Tests
 {
@@ -31,7 +31,7 @@ namespace LeonSutedja.BookingSystem.Tests
 
         public static IEnumerable<object[]> ValidCreateCustomerCommand()
         {
-            var pressiusInputs = PressiusPermutations.Generate<CreateCustomerCommand>().ToList();
+            var pressiusInputs = PressiusPermutations.Generate<CreateCustomerCommand>(new CreateCustomerCommandObjectDefinition()).ToList();
             foreach (var input in pressiusInputs)
             {
                 yield return new object[] { input.FirstName, input.LastName, input.DateOfBirth, input.Email, input.MobileNo };

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace LeonSutedja.Pressius
+namespace Pressius
 {
     public static class ObjectPermutationExtension
     {
