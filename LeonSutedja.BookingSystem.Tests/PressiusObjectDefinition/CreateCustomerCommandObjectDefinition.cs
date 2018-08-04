@@ -4,7 +4,7 @@ using Pressius;
 
 namespace LeonSutedja.BookingSystem.Tests
 {
-    public class ValidNameParameter : DefaultParameterDefinition
+    public class ValidName : DefaultParameterDefinition
     {
         public override List<object> InputCatalogues =>
             new List<object> {
@@ -17,6 +17,17 @@ namespace LeonSutedja.BookingSystem.Tests
         public override ParameterTypeDefinition TypeName => new ParameterTypeDefinition("ValidName");
     }
 
+    public class ValidMobileNo : DefaultParameterDefinition
+    {
+        public override List<object> InputCatalogues =>
+            new List<object> {
+                "0410555555",
+                "613410555555"
+            };
+
+        public override ParameterTypeDefinition TypeName => new ParameterTypeDefinition("ValidMobileNo");
+    }
+
     public class CreateCustomerCommandObjectDefinition : PropertiesObjectDefinition<CreateCustomerCommand>
     {
         public override Dictionary<string, string> MatcherDictionary =>
@@ -26,7 +37,7 @@ namespace LeonSutedja.BookingSystem.Tests
                 { "LastName", "ValidName" },
                 { "DateOfBirth", "DateTime" },
                 { "Email", "Email" },
-                { "MobileNo", "String" },
+                { "MobileNo", "ValidMobileNo" },
             };
     }
 }

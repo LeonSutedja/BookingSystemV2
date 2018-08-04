@@ -33,7 +33,8 @@ namespace LeonSutedja.BookingSystem.Tests
         {
             var addedParameterDefinitions = new List<IParameterDefinition>()
             {
-                new ValidNameParameter()
+                new ValidName(),
+                new ValidMobileNo()
             };
             var pressiusInputs = Permutate.Generate<CreateCustomerCommand>(
                 new CreateCustomerCommandObjectDefinition(),
@@ -61,7 +62,7 @@ namespace LeonSutedja.BookingSystem.Tests
                 LastName = lastName,
                 DateOfBirth = dob,
                 Email = email,
-                MobileNo = ""
+                MobileNo = mobileNo
             };
 
             var result = _cudAppService.CreateCustomer(command);
