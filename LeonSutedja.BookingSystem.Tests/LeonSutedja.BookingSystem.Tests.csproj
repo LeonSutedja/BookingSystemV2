@@ -143,6 +143,7 @@
     <Compile Include="BookingSystemInitialDataBuilder.cs" />
     <Compile Include="BookingSystemTestBase.cs" />
     <Compile Include="BookingSystemTestModule.cs" />
+    <Compile Include="PressiusObjectDefinition\CreateRoomCommandObjectDefinition.cs" />
     <Compile Include="PressiusObjectDefinition\CreateCustomerCommandObjectDefinition.cs" />
     <Compile Include="CudAppService_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

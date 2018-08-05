@@ -102,9 +102,24 @@ namespace LeonSutedja.BookingSystem.Tests
 
         public static IEnumerable<object[]> ValidCreateRoomCommand()
         {
-            yield return new object[] { "Andy", "Andy Locat", "9/9 Milky Way Road, 3150 GGGG" };
-            yield return new object[] { "12345678901234567890", "Andy Locat", "9/9 Milky Way Road, 3150 GGGG" };
-            yield return new object[] { "Andy", "12345678901234567890123456789012345678901234567890", "9/9 Milky Way Road, 3150 GGGG" };
+            var addedParameterDefinitions = new List<IParameterDefinition>()
+            {
+                new ValidShortRoomName(),
+                new ValidRoomName(),
+                new ValidLocation()
+            };
+            var pressiusInputs = Permutate.Generate<CreateRoomCommand>(
+                new CreateRoomCommandObjectDefinition(),
+                addedParameterDefinitions).ToList();
+
+            foreach (var input in pressiusInputs)
+            {
+                yield return new object[] { input.ShortName, input.Name, input.Location };
+            }
+
+            //yield return new object[] { "Andy", "Andy Locat", "9/9 Milky Way Road, 3150 GGGG" };
+            //yield return new object[] { "12345678901234567890", "Andy Locat", "9/9 Milky Way Road, 3150 GGGG" };
+            //yield return new object[] { "Andy", "12345678901234567890123456789012345678901234567890", "9/9 Milky Way Road, 3150 GGGG" };
         }
 
         [Theory]
@@ -115,7 +130,12 @@ namespace LeonSutedja.BookingSystem.Tests
             string location)
         {
             //Prepare for test
-            var command = new CreateRoomCommand(shortName, name, location);
+            var command = new CreateRoomCommand
+            {
+                ShortName = shortName,
+                Name = name,
+                Location = location
+            };
             var result = _cudAppService.CreateRoom(command);
             result.Id.ShouldBeGreaterThan(0);
         }
@@ -138,7 +158,12 @@ namespace LeonSutedja.BookingSystem.Tests
             string name,
             string location)
         {
-            var command = new CreateRoomCommand(shortName, name, location);
+            var command = new CreateRoomCommand
+            {
+                ShortName = shortName,
+                Name = name,
+                Location = location
+            };
             Assert.True(ValidateModel(command).Count > 0);
         }
 

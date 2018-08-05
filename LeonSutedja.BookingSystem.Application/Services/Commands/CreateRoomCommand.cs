@@ -19,13 +19,6 @@ namespace LeonSutedja.BookingSystem.Services.Commands
         [Required]
         [StringLength(200)]
         public string Location { get; set; }
-        
-        public CreateRoomCommand(string shortName, string name, string location)
-        {
-            ShortName = shortName;
-            Name = name;
-            Location = location;
-        }
 
         public IEvent GetEvent(string triggeredBy, DateTime triggeredDateTime)
         {
@@ -34,8 +27,8 @@ namespace LeonSutedja.BookingSystem.Services.Commands
 
         private class RoomCreated : Event
         {
-            public RoomCreated(CreateRoomCommand cmd, string triggeredBy, DateTime triggeredDateTime) 
-                : base (Guid.NewGuid(), triggeredBy, triggeredDateTime)
+            public RoomCreated(CreateRoomCommand cmd, string triggeredBy, DateTime triggeredDateTime)
+                : base(Guid.NewGuid(), triggeredBy, triggeredDateTime)
             {
                 ShortName = cmd.ShortName;
                 Name = cmd.Name;
@@ -53,7 +46,7 @@ namespace LeonSutedja.BookingSystem.Services.Commands
             [Required]
             [StringLength(200)]
             public string Location { get; private set; }
-        }        
+        }
     }
 
     public class CreateRoomCommandMapper : ICreateCommandMapper<CreateRoomCommand, Room>

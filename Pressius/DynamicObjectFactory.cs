@@ -7,6 +7,13 @@ namespace Pressius
 {
     public static class Permutate
     {
+        public static IEnumerable<T> Generate<T>()
+        {
+            var inputGenerator = new DynamicObjectFactory();
+            var inputs = inputGenerator.GeneratePermutations<T>();
+            return inputs;
+        }
+
         public static IEnumerable<T> Generate<T>(IObjectDefinition objectDefinition)
         {
             var inputGenerator = new DynamicObjectFactory();
