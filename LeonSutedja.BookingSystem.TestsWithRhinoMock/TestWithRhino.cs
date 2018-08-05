@@ -14,6 +14,7 @@ namespace LeonSutedja.BookingSystem.TestsWithRhinoMock
 {
     /* Mock extensions to capture argument from Jimmy Bogard blog */
     /* https://lostechies.com/jimmybogard/2010/06/09/capturing-rhino-mocks-arguments-in-c-4-0/ */
+
     public static class MockExtensions
     {
         public static CaptureExpression<T> Capture<T>(this T stub)
@@ -59,8 +60,8 @@ namespace LeonSutedja.BookingSystem.TestsWithRhinoMock
     }
 
     [TestClass]
-    public class UnitTest1
-    { 
+    public class TestWithRhino
+    {
         [TestMethod]
         public void ValidCreateRoomCommand_ShouldCallInsertAndGetId()
         {
@@ -72,9 +73,14 @@ namespace LeonSutedja.BookingSystem.TestsWithRhinoMock
             var newGenericCreateHandler = new GenericCreateHandler<CreateRoomCommand, Room>(new List<IBusinessRule<CreateRoomCommand, Room>>(), repositoryRoomMock, mapperRepositoryMock);
             createHandlerFactory.Stub(repo => repo.CreateHandler<CreateRoomCommand, Room>()).Return(newGenericCreateHandler);
 
-            var createRoomCommand = new CreateRoomCommand("Room1", "ROOM2", "Short Location");
+            var createRoomCommand = new CreateRoomCommand
+            {
+                ShortName = "Room1",
+                Name = "ROOM2",
+                Location = "Short Location"
+            };
             var handler = createHandlerFactory.CreateHandler<CreateRoomCommand, Room>();
-                       
+
             var response = handler.Create(createRoomCommand);
             repositoryRoomMock.AssertWasCalled(repo => repo.InsertAndGetId(Arg<Room>.Is.Anything));
             response.Status.ShouldBe(Shared.HandlerResponseStatus.Success);
