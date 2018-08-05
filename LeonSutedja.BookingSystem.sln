@@ -22,8 +22,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeonSutedja.BookingSystem.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeonSutedja.BookingSystem.Tests", "LeonSutedja.BookingSystem.Tests\LeonSutedja.BookingSystem.Tests.csproj", "{B3AA9701-B342-45A8-A37D-A487317C4366}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeonSutedja.BookingSystem.NancyWeb", "LeonSutedja.BookingSystem.NancyWeb\LeonSutedja.BookingSystem.NancyWeb.csproj", "{A00A6F93-6201-4DEF-9C5C-233F47240FF5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeonSutedja.BookingSystem.TestsWithRhinoMock", "LeonSutedja.BookingSystem.TestsWithRhinoMock\LeonSutedja.BookingSystem.TestsWithRhinoMock.csproj", "{CF6DBD97-1FC2-47D6-A774-451EA72CDA7B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pressius", "Pressius\Pressius.csproj", "{197790D7-147F-46B3-9C8A-AFD0BBEEBDE9}"
@@ -58,10 +56,6 @@ Global
 		{B3AA9701-B342-45A8-A37D-A487317C4366}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3AA9701-B342-45A8-A37D-A487317C4366}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3AA9701-B342-45A8-A37D-A487317C4366}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A00A6F93-6201-4DEF-9C5C-233F47240FF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A00A6F93-6201-4DEF-9C5C-233F47240FF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A00A6F93-6201-4DEF-9C5C-233F47240FF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A00A6F93-6201-4DEF-9C5C-233F47240FF5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CF6DBD97-1FC2-47D6-A774-451EA72CDA7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CF6DBD97-1FC2-47D6-A774-451EA72CDA7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF6DBD97-1FC2-47D6-A774-451EA72CDA7B}.Release|Any CPU.ActiveCfg = Release|Any CPU

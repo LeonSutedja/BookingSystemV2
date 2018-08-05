@@ -84,7 +84,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="views\Home.html" />
+    <None Include="views\Shared\Layout.cshtml" />
+    <None Include="views\Home.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
