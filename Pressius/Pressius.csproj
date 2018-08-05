@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DynamicObjectFactory.cs" />
+    <Compile Include="Permutate.cs" />
     <Compile Include="Extension\ObjectPermutationExtension.cs" />
     <Compile Include="ObjectDefinition.cs" />
     <Compile Include="ParameterDefinition\DefaultParameterDefinition.cs" />
