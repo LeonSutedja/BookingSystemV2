@@ -31,12 +31,13 @@ namespace LeonSutedja.BookingSystem.Tests
 
         public static IEnumerable<object[]> ValidCreateCustomerCommand()
         {
-            var addedParameterDefinitions = new List<IParameterDefinition>()
+            var addedParameterDefinitions = new List<IParameterDefinition>
             {
                 new ValidName(),
-                new ValidMobileNo()
+                new ValidMobileNo(),
+                new ValidEmail()
             };
-            var pressiusInputs = Permutate.Generate<CreateCustomerCommand>(
+            var pressiusInputs = Pressius.Pressius.Generate<CreateCustomerCommand>(
                 new CreateCustomerCommandObjectDefinition(),
                 addedParameterDefinitions).ToList();
             foreach (var input in pressiusInputs)
@@ -108,7 +109,7 @@ namespace LeonSutedja.BookingSystem.Tests
                 new ValidRoomName(),
                 new ValidLocation()
             };
-            var pressiusInputs = Permutate.Generate<CreateRoomCommand>(
+            var pressiusInputs = Pressius.Pressius.Generate<CreateRoomCommand>(
                 new CreateRoomCommandObjectDefinition(),
                 addedParameterDefinitions).ToList();
 

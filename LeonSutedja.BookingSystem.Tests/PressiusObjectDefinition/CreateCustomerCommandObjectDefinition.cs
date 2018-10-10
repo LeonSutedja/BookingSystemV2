@@ -28,6 +28,17 @@ namespace LeonSutedja.BookingSystem.Tests
         public override ParameterTypeDefinition TypeName => new ParameterTypeDefinition("ValidMobileNo");
     }
 
+    public class ValidEmail : DefaultParameterDefinition
+    {
+        public override List<object> InputCatalogues =>
+            new List<object> {
+                "Abcdefg@something.com",
+                "Xyz@blah.com"
+            };
+
+        public override ParameterTypeDefinition TypeName => new ParameterTypeDefinition("ValidEmail");
+    }
+
     public class CreateCustomerCommandObjectDefinition : PropertiesObjectDefinition<CreateCustomerCommand>
     {
         public override Dictionary<string, string> MatcherDictionary =>
@@ -35,8 +46,7 @@ namespace LeonSutedja.BookingSystem.Tests
             {
                 { "FirstName", "ValidName" },
                 { "LastName", "ValidName" },
-                { "DateOfBirth", "DateTime" },
-                { "Email", "Email" },
+                { "Email", "ValidEmail" },
                 { "MobileNo", "ValidMobileNo" },
             };
     }
