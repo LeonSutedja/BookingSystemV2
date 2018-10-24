@@ -37,7 +37,7 @@ namespace LeonSutedja.BookingSystem.Tests
                 new ValidMobileNo(),
                 new ValidEmail()
             };
-            var pressiusInputs = Pressius.Pressius.Generate<CreateCustomerCommand>(
+            var pressiusInputs = Permutor.Generate<CreateCustomerCommand>(
                 new CreateCustomerCommandObjectDefinition(),
                 addedParameterDefinitions).ToList();
             foreach (var input in pressiusInputs)
@@ -109,7 +109,7 @@ namespace LeonSutedja.BookingSystem.Tests
                 new ValidRoomName(),
                 new ValidLocation()
             };
-            var pressiusInputs = Pressius.Pressius.Generate<CreateRoomCommand>(
+            var pressiusInputs = Permutor.Generate<CreateRoomCommand>(
                 new CreateRoomCommandObjectDefinition(),
                 addedParameterDefinitions).ToList();
 
@@ -117,10 +117,6 @@ namespace LeonSutedja.BookingSystem.Tests
             {
                 yield return new object[] { input.ShortName, input.Name, input.Location };
             }
-
-            //yield return new object[] { "Andy", "Andy Locat", "9/9 Milky Way Road, 3150 GGGG" };
-            //yield return new object[] { "12345678901234567890", "Andy Locat", "9/9 Milky Way Road, 3150 GGGG" };
-            //yield return new object[] { "Andy", "12345678901234567890123456789012345678901234567890", "9/9 Milky Way Road, 3150 GGGG" };
         }
 
         [Theory]

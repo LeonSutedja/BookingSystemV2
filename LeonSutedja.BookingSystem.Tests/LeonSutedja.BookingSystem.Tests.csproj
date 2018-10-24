@@ -98,8 +98,8 @@
       <HintPath>..\packages\NMemory.1.1.0\lib\net45\NMemory.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Pressius, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Pressius.1.0.1\lib\netstandard2.0\Pressius.dll</HintPath>
+    <Reference Include="Pressius, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Pressius.1.0.2\lib\netstandard2.0\Pressius.dll</HintPath>
     </Reference>
     <Reference Include="Shouldly, Version=2.8.2.0, Culture=neutral, PublicKeyToken=6042cbcb05cbc941, processorArchitecture=MSIL">
       <HintPath>..\packages\Shouldly.2.8.2\lib\net451\Shouldly.dll</HintPath>
